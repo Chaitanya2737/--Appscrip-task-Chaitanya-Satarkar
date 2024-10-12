@@ -6,7 +6,7 @@ import style from './components.module.css';
 import Hidesidenv from './Hidesidenv';
 import MaxWithWrapper from './MaxWithWrapper';
 
-const ProductSection = () => {
+const ProductSection: React.FC = () => {
   // Interfaces for data structure
   interface Rating {
     rate: number;
@@ -51,11 +51,15 @@ const ProductSection = () => {
     fetchProducts(); 
   }, []);
 
+  const handleHideToggle = () => {
+    setIsHide(prev => !prev); // Toggle the visibility state
+  };
+
   return (
     <>
       <MaxWithWrapper>
         <div style={{ width: "100%", margin: "30px 0", padding: "20px 0", borderTop: "1px solid #E5E5E5", borderBottom: "1px solid #E5E5E5" }}>
-          <Hidesidenv hide={setIsHide} />
+          <Hidesidenv hide={handleHideToggle} /> {/* Pass the toggle function */}
         </div>
       </MaxWithWrapper>
       <div style={{ padding: '25px' }}>
@@ -67,7 +71,7 @@ const ProductSection = () => {
           )}
           <div style={{ marginLeft: "30px", display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px', width: '75%' }}>
             {isLoading && <p style={{ color: 'blue', fontSize: '1.2rem' }}>Loading products...</p>} 
-            {error && <p style={{ color: 'red', fontSize: '1.2rem' }}>Error: {error}</p>} 
+            {error && <p style={{ color: 'red', fontSize: '1.2rem',  }}>Error: {error}</p>} 
             <Card products={products} />
           </div>
         </div>

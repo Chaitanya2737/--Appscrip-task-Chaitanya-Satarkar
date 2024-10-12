@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 
 interface HidesidenvProps {
-  hide: (value: boolean) => void; // Prop type for hide function
+  hide: () => void; // Prop type for the toggle function, no argument
 }
 
 const Hidesidenv: React.FC<HidesidenvProps> = ({ hide }) => {
@@ -19,6 +19,11 @@ const Hidesidenv: React.FC<HidesidenvProps> = ({ hide }) => {
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(event.target.value);
+  };
+
+  // Function to handle hide toggle
+  const handleHideToggle = () => {
+    hide(); // Call hide without any arguments
   };
 
   return (
@@ -39,7 +44,10 @@ const Hidesidenv: React.FC<HidesidenvProps> = ({ hide }) => {
         }}
       >
         <h1>3425 Items</h1>
-        <h1 style={{ color: "#888792", cursor: "pointer" }} onClick={() => hide(prev => !prev)}>
+        <h1 
+          style={{ color: "#888792", cursor: "pointer" }} 
+          onClick={handleHideToggle} // Use the toggle function here
+        >
           Hide filter
         </h1>
       </div>

@@ -53,7 +53,7 @@ const Navbar = () => {
         {/* Left Side: Logo */}
            
             <div style={{ display: "flex", alignItems: "center" , cursor:"pointer"}}>
-          <Image src="/logo.png" alt="Company Logo" width={35} height={35} />
+          <Image src="/Logo.png" alt="Company Logo" width={35} height={35} />
         </div>
 
         {/* Middle: Company Name */}

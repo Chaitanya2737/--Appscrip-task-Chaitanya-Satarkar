@@ -2,7 +2,6 @@ import MaxWithWrapper from "@/components/MaxWithWrapper";
 import styles from './page.module.css';
 import ProductSection from "@/components/ProductSection";
 import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
